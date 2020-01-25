@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # ----------------------------- VARIÁVEIS ----------------------------- #
-PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa" -y
-PPA_OPENJDK_8="ppa:openjdk-r/ppa" -y
+PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
+PPA_OPENJDK_8="ppa:openjdk-r/ppa"
 
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 URL_SIMPLE_NOTE="https://github.com/Automattic/simplenote-electron/releases/download/v1.8.0/Simplenote-linux-1.8.0-amd64.deb"
