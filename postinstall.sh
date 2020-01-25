@@ -32,6 +32,7 @@ sudo dpkg --add-architecture i386
 
 ## Atualizando o repositório ##
 sudo apt update -y
+sudo apt-get install openjdk-8-jre
 
 sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" "$PPA_OPENJDK_8" -y
 
