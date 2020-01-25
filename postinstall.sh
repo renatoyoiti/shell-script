@@ -18,6 +18,8 @@ PROGRAMAS_PARA_INSTALAR=(
   openjdk-8-jdk
   gcc-multilib
   lib32z1
+  lib32gcc1
+  libc6-i386
   lib32stdc++6
   libc6-dev
 )
