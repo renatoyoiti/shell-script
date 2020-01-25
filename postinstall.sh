@@ -5,7 +5,6 @@ PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 PPA_OPENJDK_8="ppa:openjdk-r/ppa"
 
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-URL_SIMPLE_NOTE="https://github.com/Automattic/simplenote-electron/releases/download/v1.12.0/Simplenote-linux-1.12.0-amd64.deb"
 
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
@@ -13,13 +12,6 @@ PROGRAMAS_PARA_INSTALAR=(
   snapd
   mint-meta-codecs
   build-essential
-  libssl-dev
-  gcc-multilib
-  lib32z1
-  lib32gcc1
-  libc6-i386
-  lib32stdc++6
-  libc6-dev
   git
   openjdk-8-jdk
 )
@@ -73,7 +65,7 @@ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwa
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 ### add repository
-sudo apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 
 sudo apt-get update -y
 
