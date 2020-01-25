@@ -47,9 +47,6 @@ mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_SIMPLE_NOTE"         -P "$DIRETORIO_DOWNLOADS"
 
-## Instalando pacotes .deb baixados na sessão anterior ##
-sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-
 # Instalar programas no apt
 for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
   if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
@@ -58,6 +55,9 @@ for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
     echo "[INSTALADO] - $nome_do_programa"
   fi
 done
+
+## Instalando pacotes .deb baixados na sessão anterior ##
+sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 
 ## instalando docker
 
