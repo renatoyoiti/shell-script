@@ -11,6 +11,7 @@ DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 PROGRAMAS_PARA_INSTALAR=(
   snapd
+  gconf2
   git
   build-essential
   libssl-dev
@@ -18,6 +19,7 @@ PROGRAMAS_PARA_INSTALAR=(
   gcc-multilib
   lib32z1
   lib32stdc++6
+  libc6-dev
 )
 
 # ----------------------------- REQUISITOS ----------------------------- #
@@ -57,12 +59,12 @@ done
 ## instalando docker
 
 ## uninstall old versions of docker
-sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get remove docker docker-engine docker.io containerd runc -y
 
-sudo apt-get update
+sudo apt-get update -y
 
 ### dependencias docker
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
 ### add official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -72,7 +74,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 sudo apt-get update -y
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 ### permission to user execute docker as root
 sudo usermod -aG docker $USER
@@ -86,7 +88,7 @@ sudo snap install android-studio --classic
 
 ## install zsh ##
 cd ~
-sudo apt install zsh
+sudo apt install zsh -y
 
 ### change to default shell
 chsh -s $(which zsh)
@@ -108,6 +110,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-sudo apt update
+sudo apt update -y
 
-sudo apt install --no-install-recommends yarn
+sudo apt install --no-install-recommends yarn -y
