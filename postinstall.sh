@@ -8,18 +8,12 @@ URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_curre
 
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
-PROGRAMAS_PARA_INSTALAR=(
-  snapd
-  mint-meta-codecs
-  build-essential
-  git
-  openjdk-8-jdk
-)
-
 # ----------------------------- REQUISITOS ----------------------------- #
 ## Removendo travas eventuais do apt ##
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
+sudo rm /etc/apt/preferences.d/nosnap.pref
+sudo apt-get update
 
 ## Adicionando/Confirmando arquitetura de 32 bits ##
 sudo dpkg --add-architecture i386
@@ -27,7 +21,7 @@ sudo dpkg --add-architecture i386
 ## Atualizando o repositório ##
 sudo apt-get update
 
-sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
+#sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
 sudo apt-add-repository "$PPA_OPENJDK_8" -y
 
 # ----------------------------- EXECUÇÃO ----------------------------- #
@@ -37,16 +31,10 @@ sudo apt-get update
 ## Download e instalaçao de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_SIMPLE_NOTE"         -P "$DIRETORIO_DOWNLOADS"
+#wget -c "$URL_SIMPLE_NOTE"         -P "$DIRETORIO_DOWNLOADS"
 
-# Instalar programas no apt
-for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
-  if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
-    sudo apt-get install "$nome_do_programa" -y
-  else
-    echo "[INSTALADO] - $nome_do_programa"
-  fi
-done
+## Instalando programas necessários ##
+sudo apt-get install mint-meta-codecs build-essential git openjdk-8-jdk -y
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
@@ -65,7 +53,7 @@ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwa
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 ### add repository
-sudo apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu hirsute stable"
 
 sudo apt-get update -y
 
@@ -83,6 +71,6 @@ chsh -s $(which zsh)
 
 sudo apt-get update
 
-sudo apt install --no-install-recommends yarn -y
+sudo apt update && sudo apt install --no-install-recommends yarn -y
 
 sudo apt-get update && sudp apt dist-upgrade
