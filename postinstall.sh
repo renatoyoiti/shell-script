@@ -4,8 +4,7 @@
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 PPA_OPENJDK_8="ppa:openjdk-r/ppa"
 
-URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-
+#URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 
 # ----------------------------- REQUISITOS ----------------------------- #
@@ -30,7 +29,7 @@ sudo apt-get update
 
 ## Download e instalaçao de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
+#wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 #wget -c "$URL_SIMPLE_NOTE"         -P "$DIRETORIO_DOWNLOADS"
 
 ## Instalando programas necessários ##
