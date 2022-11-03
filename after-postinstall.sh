@@ -1,6 +1,6 @@
 ## Instalando pacotes Snap ##
-sudo snap install code --classic
-sudo snap install skype --classic
+#sudo snap install code --classic
+#sudo snap install skype --classic
 sudo snap install insomnia
 sudo snap install android-studio --classic
 
@@ -16,7 +16,7 @@ git clone https://github.com/dracula/zsh.git
 ln -s $DRACULA_THEME/dracula.zsh-theme $OH_MY_ZSH/themes/dracula.zsh-theme
 
 ## install nvm ##
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | zsh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | zsh
 
 nvm install --lts
 
